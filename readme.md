@@ -17,6 +17,11 @@ See `__main__.py` for the running example.
 
 ## Usage
 
+Proof of concept: `py -m <the module>`
+
+This will find a valid key and decrypt the text in this readme correctly in
+about 10 seconds, most of the time.
+
 There's no command line interface for the proof of concept, just edit 
 `__main__.py` to use.
 
@@ -52,9 +57,11 @@ The file `ga.py` contains `ga_string(...)` with arguments:
 - `n_survivors`: Number of candidates that survive the generation. Default 5.
 - `mutation_rate`: Number of mutated characters per mutation.
 
-The first generation starts with `n_survivors` fully random strings (picked from
-`charset`), all subsequent generation with the `n_survivors` best-fitting
-candidates from the previous generation.
+The first generation starts with `gen_size` fully random strings (picked from
+`charset`).
+Subsequent generations use the `n_survivors` best-fitting candidates from the
+previous generation, plus a number of mutations of these that brings the total
+number of candidates to `gen_size`.
 
 Of this initial population, candidates are picked randomly and mutated such that
 the total population size is always `n_mutations`.
@@ -65,4 +72,4 @@ A working example is shown in `main.py`.
 [word-list]: https://gist.github.com/deekayen/4148741
 [wiki-cipher]: https://en.wikipedia.org/wiki/Transposition_cipher
 [wiki-ga]: https://en.wikipedia.org/wiki/Genetic_algorithm
-[wiki-example]: https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transpositio
+[wiki-example]: https://en.wikipedia.org/wiki/Transposition_cipher#Columnar_transposition

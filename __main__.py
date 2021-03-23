@@ -10,7 +10,11 @@ def _count_words(word_list, text):
 
 
 KEY = "ZEBRAS"
-PLAINTEXT = "WEAREDISCOVEREDFLEEATONCE"
+
+# Example from wikipedia
+# PLAINTEXT = "WEAREDISCOVEREDFLEEATONCE"
+
+PLAINTEXT = Path('ga/readme.md').read_text()
 WORDS = Path('words.txt').read_text().splitlines()
 CIPHER = (encrypt(KEY, PLAINTEXT))
 
@@ -27,10 +31,10 @@ def score(candidate):
 best_guess = ga_string(
         score,
         str_len=6,
-        n_generations=500,
-        gen_size=50,
+        n_generations=50,
+        gen_size=40,
         n_survivors=10,
-        mutation_rate=4
+        mutation_rate=3
 
 )
 

@@ -39,7 +39,7 @@ def ga_string(
    ):
 
     # Randomly generate initial survivors
-    init = [_ga_init(str_len, charset) for _ in range(n_survivors)]
+    init = [_ga_init(str_len, charset) for _ in range(gen_size)]
 
     for gen in range(n_generations):
 
@@ -63,5 +63,6 @@ def ga_string(
         init = [survivor[0] for survivor in survivors]
 
         # TODO: Crossover
+        print(scores[0])
 
     return init[0]
