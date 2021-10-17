@@ -50,7 +50,6 @@ def _to_rows(key_len, text, pad=None):
 
     return rows
 
-
 def _to_order(key):
     """ Get column sort order based on `key` """
     return list(sorted(key).index(char) for char in key)
